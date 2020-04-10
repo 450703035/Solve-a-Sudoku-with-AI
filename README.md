@@ -11,7 +11,7 @@ Created: Mar 31, 2020 1:35 PM
 
 难题以部分完成的网格形式给出，目标是填写缺失的数字。 以下是此类网格的示例。
 
-![AI/Untitled.png](AI/Untitled.png)
+![](https://raw.githubusercontent.com/450703035/picgo/master/20200410082917.png)
 
 ### 项目的目标
 
@@ -46,7 +46,7 @@ Created: Mar 31, 2020 1:35 PM
 - 列用数字1、2、3、4、5、6、7、8、9标记。
 - 在这里，我们可以看到带有行和列标签的未解决和已解决的难题。 3x3正方形不会被标记，但是在图中，可以看到它们具有灰色和白色的交替颜色。
 
-![AI/Untitled%201.png](AI/Untitled%201.png)
+![](https://raw.githubusercontent.com/450703035/picgo/master/20200410082900.png)
 
 ### 盒子、单元、对等
 
@@ -58,11 +58,11 @@ Created: Mar 31, 2020 1:35 PM
 
 让我们来看一个例子。 在下面的网格中，突出显示的框集代表单位。 每个网格在E3处显示了框的不同对等点。
 
-![AI/Untitled%202.png](AI/Untitled%202.png)
+![](https://raw.githubusercontent.com/450703035/picgo/master/20200410082908.png)
 
 ## 0.4 编码
 
-![AI/Untitled%203.png](AI/Untitled%203.png)
+![](https://raw.githubusercontent.com/450703035/picgo/master/20200410082909.png)
 
 为了实现程序，我们开始使用Python编写代码。然后，我们将编写解决Sudoku的必要功能的代码。我们将以两种方式记录谜题-字符串和字典。
 
@@ -208,7 +208,7 @@ def cross（a，b）： 返回[s + t表示s在a中在b中在t中]
 
 首先，让我们看一个盒子并分析其中可能的值。
 
-![AI/Untitled%204.png](AI/Untitled%204.png)
+![](https://raw.githubusercontent.com/450703035/picgo/master/20200410082911.png)
 
 红色框可能的值是4和7。我们如何解决这个问题？ 好吧，所有其他值已经出现在突出显示框的同一列，行或3x3正方形中，因此我们得出结论，它们不能是此框的值。 换句话说，我们使用以下策略。
 
@@ -216,7 +216,7 @@ def cross（a，b）： 返回[s + t表示s在a中在b中在t中]
 
 我们可以通过一次检查，遍历每个具有值的框，并根据其对等点消除框上无法显示的值。 完成后，将如下所示（为清楚起见，我们以粗体突出显示了原始填充框）：
 
-![AI/Untitled%205.png](AI/Untitled%205.png)
+![](https://raw.githubusercontent.com/450703035/picgo/master/20200410082910.png)
 
 这似乎是我们可以编码的东西！改进形grid_values（）
 
@@ -284,7 +284,7 @@ def cross（a，b）： 返回[s + t表示s在a中在b中在t中]
 
 是时候编写代码了！ 在下一个测验中，完成函数only_choice的代码，该代码将以字典形式输入一个谜题。 该功能将遍历所有单位，如果某个单位的数字仅适合一个可能的框，它将将该数字分配给该框。
 
-![AI/Untitled%206.png](AI/Untitled%206.png)
+![](https://raw.githubusercontent.com/450703035/picgo/master/20200410082912.png)
 
     def only_choice(values):
         """Finalize all values that are the only choice for a unit.
@@ -307,7 +307,7 @@ def cross（a，b）： 返回[s + t表示s在a中在b中在t中]
 
 如果到目前为止，您已经接触到了AI的强大技术-约束传播。 约束传播是关于使用空间中的局部约束（对于Sudoku，是每个正方形的约束）来极大地减少搜索空间。 当我们执行每个约束时，我们将看到它如何为其他部分引入新的约束，这可以帮助我们进一步减少可能性。 我们有一整节课专门讨论约束传播，但让我们快速了解一下它可以帮助我们解决的其他一些著名的AI问题。
 
-![AI/Untitled%207.png](AI/Untitled%207.png)
+![](https://raw.githubusercontent.com/450703035/picgo/master/20200410082913.png)
 
 现在您了解了如何将约束传播应用于此问题，让我们尝试对其进行编码！ 在以下测验中，将eliminate和only_choice函数结合在一起以编写reduce_puzzle函数，该函数接收未解决的难题作为输入，并反复应用我们的两个约束以尝试解决该难题。
 
@@ -343,9 +343,9 @@ def cross（a，b）： 返回[s + t表示s在a中在b中在t中]
 
 ## 0.8 高难度数独
 
-![AI/Untitled%208.png](AI/Untitled%208.png)
+![](https://raw.githubusercontent.com/450703035/picgo/master/20200410082914.png)
 
-![AI/Untitled%209.png](AI/Untitled%209.png)
+![](https://raw.githubusercontent.com/450703035/picgo/master/20200410082916.png)
 
 不好了！ 该算法无法解决。 它似乎使每个盒子都减少了许多可能性，但是它不会比这更进一步。 我们需要考虑其他方法来改进我们的解决方案。
 
@@ -513,4 +513,4 @@ Depth First Search.
     test1 = search(grid_values(grid2))
     display(test1)
 
-![AI/Untitled%2010.png](AI/Untitled%2010.png)
+![](https://raw.githubusercontent.com/450703035/picgo/master/20200410082915.png)
